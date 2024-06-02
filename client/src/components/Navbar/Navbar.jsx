@@ -59,7 +59,7 @@ function Navbar() {
   }
 
   return (
-    <header className="header">
+    <header className="header" id="header">
       <div className="navLogo">
         <Link to={"/"} className="navLogoItem">
           WebRequest
