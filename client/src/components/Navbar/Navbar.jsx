@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+import { useAuth } from '../../context/AuthContext'
 import "./Navbar.css";
 
 function NavLink({ children, to, handleClick }) {
@@ -12,11 +15,143 @@ function NavLink({ children, to, handleClick }) {
   );
 }
 
+function Register({ registerClick, registerActive, setRegisterActive, setNavActive }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const {signup, errors: registerErrors } = useAuth();
+
+  const onSubmit = handleSubmit(async (values) => {
+    signup(values, setRegisterActive, setNavActive);
+  });
+
+  return (
+    <div className={registerActive == false ? 'authFormContainer' : 'showAuthFormContainer'}>
+      {
+        registerErrors.map((error, i) => (
+          <div key={i} className="registerError">
+            {error}
+          </div>
+        ))
+      }
+    <div className="closeAuthForm" onClick={registerClick}>
+      <i className="ri-close-line closeNavIcon authClose"></i>
+    </div>
+      <form className="authForm" onSubmit={onSubmit}>
+        <div className="authInputGroup">
+
+        {errors.username && (
+            <p className="formErrors">Correo electrónico requerido</p>
+          )}
+        <input 
+        type="text" 
+        className="authInput" 
+        placeholder="Nombre de usuario"
+        {...register("username", {required: true})}
+        />
+        
+        {errors.email && (
+            <p className="formErrors">Correo electrónico requerido</p>
+          )}
+
+        <input 
+        type="text" 
+        className="authInput" 
+        placeholder="Correo electrónico"
+        autoComplete="true"
+        {...register("email", {required: true})}
+        />
+
+        {errors.password && (
+            <p className="formErrors">Contraseña requerido</p>
+          )}
+
+        <input 
+        type="password" 
+        className="authInput" 
+        placeholder="Contraseña"
+        {...register("password", {required: true})}
+        />
+
+        <p className="authRedirect">Ya tienes una cuenta? <span className="authBack" onClick={registerClick}>Volver</span></p>
+
+        </div>
+        <button className="authButton">
+          Registrarse
+        </button>
+
+      </form>
+    </div>
+  )
+}
+
+function Login({ loginClick, loginActive, setNavActive, setLoginActive }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const { signin, errors: signinErrors } = useAuth();
+
+  const onSubmit = handleSubmit((data) => {
+    signin(data, setNavActive, setLoginActive);
+  })
+
+  return (
+    <div className={loginActive == true ? 'authFormContainer' : 'showAuthFormContainer'}>
+    <div className="closeAuthForm" onClick={loginClick}>
+      <i className="ri-close-line closeNavIcon authClose"></i>
+    </div>
+      <form className="authForm" onSubmit={onSubmit}>
+
+      {signinErrors.map((error, i) => (
+          <div className="registerError" key={i}>
+            {error}
+          </div>
+        ))}
+
+        <div className="authInputGroup">
+
+        {errors.email && <p className="formErrors">Email requerido</p>}
+        <input 
+        type="text" 
+        className="authInput" 
+        placeholder="Correo electrónico"
+        {...register("email", { required: true })}
+        autoComplete="true"
+        />
+
+        {errors.password && (
+            <p className="formErrors">Contraseña requerida</p>
+          )}
+        <input 
+        type="password" 
+        className="authInput" 
+        placeholder="Contraseña"
+        {...register("password", { required: true })}
+        />
+        <p className="authRedirect">Aún no tienes una cuenta? <span className="authBack" onClick={loginClick}>Volver</span></p>
+
+        </div>
+        <button className="authButton">
+          Iniciar sesión
+        </button>
+
+      </form>
+    </div>
+  )
+}
+
 function Navbar() {
+  const { isAuthenticated, logout } = useAuth();
   const [navActive, setNavActive] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
   const [loginActive, setLoginActive] = useState(true);
-  const [registerActive, setRegisterActive] = useState(true);
+  const [registerActive, setRegisterActive] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -52,10 +187,6 @@ function Navbar() {
     } else {
       setRegisterActive(false)
     }
-  }
-
-  const handleAuthForm = (e) => {
-    e.preventDefault()
   }
 
   return (
@@ -97,11 +228,30 @@ function Navbar() {
         </div>
 
         <div className="navLinks">
-          <NavLink to={"/"} handleClick={handleClick}>
-            Publicaciones destacadas
-          </NavLink>
 
+          
+                      <NavLink to={"/"} handleClick={handleClick}>
+                      Publicaciones destacadas
+                    </NavLink>
 
+                    <NavLink to={"/"} handleClick={handleClick}>
+                    Ayuda
+                    </NavLink>
+            {isAuthenticated ? (
+              <>
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      logout(setNavActive);
+                      setNavActive(false)
+                    }}
+                    className="navLink"
+                  >
+                    Cerrar sesión
+                  </Link>
+              </>
+          ) : (
+            <>
           <div className="navLinkContainer" onClick={loginClick}>
           <button className="navLinkButton">
             Iniciar sesión
@@ -113,50 +263,27 @@ function Navbar() {
             Registrarse
           </button>
           </div>
+            </>
 
-          <NavLink to={"/"} handleClick={handleClick}>
-            Ayuda
-          </NavLink>
+          )}
+
+
         </div>
       </nav>
         
-        <div className={loginActive == true ? 'authFormContainer' : 'showAuthFormContainer'}>
-        <div className="closeAuthForm" onClick={loginClick}>
-          <i className="ri-close-line closeNavIcon authClose"></i>
-        </div>
-          <form className="authForm" onClick={handleAuthForm}>
-            <div className="authInputGroup">
-            <input type="text" className="authInput" placeholder="Correo electrónico"/>
-            <input type="password" className="authInput" placeholder="Contraseña"/>
-            <p className="authRedirect">Aún no tienes una cuenta? <span className="authBack" onClick={loginClick}>Volver</span></p>
+        <Login 
+        loginClick={loginClick} 
+        loginActive={loginActive}
+        setLoginActive={setLoginActive}
+        setNavActive={setNavActive}
+        />
 
-            </div>
-            <button className="authButton">
-              Iniciar sesión
-            </button>
-
-          </form>
-        </div>
-
-        <div className={registerActive == true ? 'authFormContainer' : 'showAuthFormContainer'}>
-        <div className="closeAuthForm" onClick={registerClick}>
-          <i className="ri-close-line closeNavIcon authClose"></i>
-        </div>
-          <form className="authForm" onClick={handleAuthForm}>
-            <div className="authInputGroup">
-            <input type="text" className="authInput" placeholder="Nombre de usuario"/>
-            <input type="text" className="authInput" placeholder="Correo electrónico"/>
-            <input type="password" className="authInput" placeholder="Contraseña"/>
-            <input type="password" className="authInput" placeholder="Confirmar contraseña"/>
-            <p className="authRedirect">Ya tienes una cuenta? <span className="authBack" onClick={registerClick}>Volver</span></p>
-
-            </div>
-            <button className="authButton">
-              Registrarse
-            </button>
-
-          </form>
-        </div>
+        <Register 
+        registerClick={registerClick} 
+        registerActive={registerActive} 
+        setRegisterActive={setRegisterActive}
+        setNavActive={setNavActive}
+        />
 
     </header>
   );

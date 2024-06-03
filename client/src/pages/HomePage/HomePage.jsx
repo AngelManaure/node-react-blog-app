@@ -1,8 +1,20 @@
-import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./HomePage.css";
+import { useEffect } from "react";
+
 
 function HomePage() {
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/profile")
+    }
+  }, [isAuthenticated])
+
   return (
     <main className="homeContainer" id="#home-container">
       <section className="upSection" id="up-section">
