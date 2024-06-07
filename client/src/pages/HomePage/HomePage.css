@@ -197,6 +197,19 @@ body {
   color: #ffffff;
 }
 
+.AboutLinks {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.AboutLinks a {
+  margin: .5rem;
+}
+
 @media screen and (min-width: 768px) {
 
   .upsectionTextContainer {
@@ -249,6 +262,11 @@ body {
 
   .aboutInfoSectionLink {
     font-size: 1.5rem;
+  }
+
+  .AboutLinks {
+    margin-top: 5rem;
+    font-size: 1.3rem;
   }
 }
 

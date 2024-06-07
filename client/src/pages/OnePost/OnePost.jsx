@@ -60,7 +60,7 @@ function OnePost() {
           </button>
           <h3>{post.title}</h3>
         </div>
-        <Link className="denLink" onClick={handleReport} title="Denunciar">
+        <Link className="oneDenLink" onClick={handleReport} title="Denunciar">
           denunciar<i className="ri-error-warning-fill"></i>
         </Link>
       </div>

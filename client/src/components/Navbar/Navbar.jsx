@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import { useState } from "react";
 
 import { useAuth } from "../../context/AuthContext";
 import { useNav } from "../../context/NavContext";
@@ -101,6 +100,10 @@ function Navbar() {
 
           <NavLink to={"/all-post"} handleClick={handleClick}>
             Todas las publicaciones
+          </NavLink>
+
+          <NavLink to={"/about-page"} handleClick={handleClick}>
+            Políticas
           </NavLink>
 
         </div>

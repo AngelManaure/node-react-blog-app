@@ -1,8 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { get, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import { usePosts } from "../../context/PostContext";
+
+import './EditPost.css'
 
 function EditPost() {
   const { getPost, updatePost, badWords } = usePosts();
@@ -29,10 +31,11 @@ function EditPost() {
   })
 
   return (
-    <>
-      <form onSubmit={onSubmit}>
+    <article className="editPostContainer">
+      <form onSubmit={onSubmit} className="editForm">
       {badWords && <p className="reportMessage">{badWords}</p>}
         <input 
+        className="editPostInput"
         type="text" 
         id="title" 
         {...register("title")}
@@ -40,14 +43,14 @@ function EditPost() {
         />
 
         <textarea 
+        className="editPostTextarea"
         id="description"
-        rows={5}
         {...register("description")}
         >
         </textarea>
-        <button type="submit">Guardar</button>
+        <button className="editPostButton" type="submit">Guardar</button>
       </form>
-    </>
+    </article>
   )
 }
 

@@ -6,6 +6,7 @@ import { searchPost } from "../../api/posts";
 function Search({ searchActive, handleSearch }) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const [searchResult, setSearchResult] = useState(false);
 
     //buscador
     const handleSearchSubmit = async (e) => {
@@ -13,15 +14,24 @@ function Search({ searchActive, handleSearch }) {
         try {
           const response = await searchPost(query)
           setResults(response.data);
+          setSearchResult(true)
         } catch (error) {
           throw new Error(error);
         }
       }
 
+      const handleResults = () => {
+        if (searchResult == false) {
+          setSearchResult(true)
+        } else {
+          setSearchResult(false)
+        }
+      }
+
   return (
     <div className={searchActive == true ? "showSearch" : "search"}>
-    <div className="closeNav" onClick={handleSearch}>
-      <i className="ri-close-line closeNavIcon"></i>
+    <div className="closeSearchModal" onClick={handleSearch}>
+      <i className="ri-close-line"></i>
     </div>
     <form className="searchContainer" onSubmit={handleSearchSubmit}>
       <div className="searchIconContainer">
@@ -48,7 +58,7 @@ function Search({ searchActive, handleSearch }) {
           <Link
           className="searchResultLink"
           to={`/post/${post.id}`} 
-          onClick={handleSearch}
+          onClick={handleResults}
           >
             Ver
             </Link>

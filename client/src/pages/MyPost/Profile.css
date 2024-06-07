@@ -1,0 +1,28 @@
+.userProfile {
+    display: grid;
+    place-items: center;
+    margin-top: 1rem;
+    overflow-x: hidden;
+}
+
+.createPostPerfilContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+@media screen and (min-width: 820px) {
+    .userProfileContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 4rem;
+      }
+      
+      .userProfile {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+}

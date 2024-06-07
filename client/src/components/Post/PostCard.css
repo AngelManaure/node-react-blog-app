@@ -1,0 +1,88 @@
+
+.postCard {
+    font-family: "Roboto Condensed", sans-serif;
+    min-width: 80%;
+    max-width: 80%;
+    background-color: #ffffff;
+    margin: .5rem 0;
+    height: 9rem;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border-top: 1px solid rgb(202, 200, 200);
+}
+
+.topCard {
+    width: 100%;
+    background-color: #383737;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.topInfoCard {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: start;
+    justify-content: center;
+    font-size: .87rem;
+    color: #ffffff;
+}
+
+.topInfoCard h3 {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+
+.topInfoCard span {
+    margin-top: -20px;
+    font-size: .95rem;
+}
+
+.topLeftButtonsCard {
+    padding-right: 1rem;
+    display: flex;
+    gap: 8px;
+}
+
+.viewPost,
+.denLink {
+    color: rgb(235, 234, 234);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+.viewPost i,
+.denLink i {
+    transition: color .2s;
+}
+
+.denLink:hover i,
+.viewPost:hover i {
+    color: rgb(226, 222, 222);
+}
+
+.bottomCart {
+    font-size: 1rem;
+    color: #2e2d2d;
+    padding: 4px;
+}
+
+@media screen and (min-width: 768px) {
+
+    .postCard {
+        height: 11rem;
+    }
+    
+    .topInfoCard h3, .topInfoCard span {
+        font-size: 1.2rem;
+    }
+
+    .bottomCart {
+        font-size: 1.1rem;
+    }
+}

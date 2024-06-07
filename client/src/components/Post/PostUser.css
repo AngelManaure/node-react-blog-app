@@ -49,3 +49,10 @@
 .bottomPostUserCard button:hover {
     color: rgb(255, 91, 25);
 }
+
+@media screen and (min-width: 820px) {
+    .postUserCard {
+        width: 250px;
+        margin: 5px;
+    }
+}

@@ -15,6 +15,7 @@ import EditPost from "./pages/CreatePost/EditPost";
 import AboutPage from "./pages/AboutPage";
 import AboutPriv from './pages/AboutPriv'
 import AboutTerms from './pages/AboutTerms'
+import AboutLinks from "./components/AboutLinks";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               <Route path="/about-page/content" element={<AboutPage />} />
               <Route path="/about-page/priv" element={<AboutPriv />} />
               <Route path="/about-page/terminos" element={<AboutTerms />} />
+              <Route path="/about-page" element={<AboutLinks />} />
             </Routes>
           </BrowserRouter>
         </AuthProvider>

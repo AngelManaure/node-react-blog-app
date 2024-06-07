@@ -1,464 +1,482 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #302E2E;
-    color: #ffffff;
-    height: 5rem;
-    width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #302e2e;
+  color: #ffffff;
+  height: 5rem;
+  width: 100vw;
 }
 
 .navLogo {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .navLogoItem {
-    font-size: 1.6rem;
-    text-decoration: none;
-    color: #ffffff;
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .rightNavIcons {
-    display: flex;
-    gap: 12px;
-    position: absolute;
-    right: 0;
-    padding: 1rem;
-    transition: color .4s;
-    font-size: 2.2rem;
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+  transition: color 0.4s;
+  font-size: 2.2rem;
 }
 
 .navSearch,
 .navToggle {
-    cursor: pointer;
-    transition: color .4s;
+  cursor: pointer;
+  transition: color 0.4s;
 }
-
 
 .navSearch:hover,
 .navToggle:hover {
-    color: #e7e6e6;
+  color: #e7e6e6;
 }
 
 .searchInput,
 .searchButton {
-    font-family: "Bai Jamjuree", sans-serif;
+  font-family: "Bai Jamjuree", sans-serif;
 }
 
 .authFormContainer,
 .search,
 .navbar {
+  top: -200%;
+  position: absolute;
+  transition: all 0.3s;
+  background-color: rgba(34, 34, 34, 0.8);
+  backdrop-filter: blur(16px);
+  padding: 2rem 0;
+  text-align: center;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  z-index: 900;
+}
+
+.showAuthFormContainer,
+.showSearch,
+.showNavbar {
+  position: absolute;
+  top: 0;
+  transition: all 0.3s;
+  background-color: rgba(34, 34, 34, 0.8);
+  backdrop-filter: blur(16px);
+  padding: 1.7rem 0;
+  text-align: center;
+  height: 90.3vh;
+  overflow: hidden;
+  width: 100%;
+  z-index: 900;
+}
+
+.showSearch {
+  padding: 0;
+  padding-bottom: 10rem;
+}
+
+.searchResults {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.searchResult {
+  border-radius: 12px;
+  background-color: #1f1e1e;
+  height: 6rem;
+  margin: 5px;
+  font-size: 0.8rem;
+  overflow: hidden;
+  padding-bottom: 8px;
+  padding: 0 15px;
+}
+
+.topsearchResult {
+  margin-top: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  height: 2rem;
+}
+
+.searchResultLink {
+  font-size: 1.1rem;
+  color: rgb(220, 220, 220);
+  transition: color 0.2s;
+}
+
+.searchResultLink:hover {
+  color: #232ba3;
+}
+
+.searchResult p {
+  height: 3rem;
+  overflow: hidden;
+}
+
+/* Barra de scroll */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: hsl(rgb(0, 0, 0), 8%, 38%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(red, 8%, 26%);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(red, 11%, 17%);
+}
+
+.closeNav {
+  font-size: 2.5rem;
+  margin: 0 auto 3rem;
+  cursor: pointer;
+}
+
+.closeNavIcon {
+  display: inline;
+  transition: 0.3s;
+}
+
+.closeNavIcon:hover {
+  color: rgb(233, 89, 64);
+}
+
+.closeAuthForm {
+  font-size: 2.5rem;
+  margin: 0 auto 3rem;
+  margin-top: -28rem;
+  cursor: pointer;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.searchIconContainer {
+  background-color: #646161;
+  width: 45px;
+  height: 55px;
+  font-size: 2.1rem;
+  display: grid;
+  place-content: center;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  font-weight: 500;
+  transition: color 0.3s, background-color 0.3s;
+  cursor: pointer;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  width: 200px;
+  font-size: 1.4rem;
+  padding: 6px;
+  background-color: #e7e3e3;
+  color: #131212;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.searchButton {
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #ffffff;
+  color: #242423;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.searchButton:hover,
+.searchIconContainer:hover {
+  color: #c28b25;
+  background-color: #252525;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.4rem;
+  overflow: hidden;
+}
+
+.navLinkContainer {
+  width: 100%;
+  padding: 1.7rem;
+  transition: background-color 0.4s;
+}
+
+.navLinkContainer:hover {
+  background-color: #3f3e3e;
+}
+
+.navLinkContainer:hover .navLink,
+.navLinkContainer:hover .navLinkButton {
+  color: #bb8654;
+}
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.4s;
+}
+
+.navLinkButton {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.4s;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.47rem;
+  cursor: pointer;
+}
+
+.authFormContainer,
+.showAuthFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.authForm {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.authInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.authInput {
+  height: 30px;
+  width: 300px;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  padding: 11px;
+  font-size: 1.1rem;
+}
+
+.authRedirect {
+  margin-top: -1rem;
+}
+
+.authBack {
+  font-size: 1.1rem;
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.authBack:hover {
+  color: #b97425;
+}
+
+.authButton {
+  width: 11rem;
+  height: 2.4rem;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  transition: color 0.2s, background-color 0.2s;
+  cursor: pointer;
+}
+
+.authButton:hover {
+  color: #c28b25;
+  background-color: #252525;
+}
+
+.formErrors {
+  margin: 0;
+}
+
+.termsRedirect {
+  color: #ffffff;
+}
+
+.termErros {
+  font-size: 1rem;
+  position: absolute;
+  bottom: -3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .navLogo {
+    font-size: 1.8rem;
+  }
+
+  .rightNavIcons {
+    font-size: 2.3rem;
+  }
+  .authFormContainer,
+  .navbar {
     top: -200%;
-    position: absolute; 
-    transition: all .3s;
+    right: 0;
+    position: absolute;
+    transition: all 0.4s;
     background-color: rgba(34, 34, 34, 0.8);
     backdrop-filter: blur(16px);
     padding: 2rem 0;
     text-align: center;
     overflow: hidden;
     height: 100vh;
-    width: 100%;
-    z-index: 900;
-}
+    width: 25rem;
+    transition: all 0.3s;
+  }
 
-.showAuthFormContainer,
-.showSearch,
-.showNavbar {
+  .showAuthFormContainer,
+  .showNavbar {
     position: absolute;
-    top: 0;
-    transition: all .3s;
+    right: 0;
+    transition: all 0.4s;
     background-color: rgba(34, 34, 34, 0.8);
     backdrop-filter: blur(16px);
     padding: 1.7rem 0;
     text-align: center;
     height: 90.3vh;
     overflow: hidden;
-    width: 100%;
-    z-index: 900;
-}
+    width: 25rem;
+  }
 
-.showSearch {
-    padding: 0;
-    padding-bottom: 10rem;
-}
-
-.searchResults {
-    margin-top: 1rem;
+  .searchResults {
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
+    background: transparent;
+    gap: 0.3rem;
+    height: auto;
+    padding: 1rem;
+  }
 
-.searchResult {
-    border-radius: 12px;
-    background-color: #1f1e1e;
-    height: 6rem;
-    margin: 5px;
-    font-size: .8rem;
-    overflow: hidden;
-    padding-bottom: 8px;
-    padding: 0 15px;
-}
-
-.topsearchResult {
-    margin-top: 7px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    height: 2rem;
-}
-
-.searchResultLink {
-    font-size: 1.1rem;
-    color: rgb(220, 220, 220);
-    transition: color .2s;
-}
-
-.searchResultLink:hover {
-    color: #232ba3;
-}
-
-.searchResult p {
-    height: 3rem;
-    overflow: hidden;
-}
-
-/* Barra de scroll */
-::-webkit-scrollbar{
-    width: .6rem;
-    border-radius: .5rem;
-    background-color: hsl(rgb(0, 0, 0), 8%, 38%);
-}
-
-::-webkit-scrollbar-thumb{
-    background-color: hsl(red, 8%, 26%);
-    border-radius: .5rem;
-}
-
-::-webkit-scrollbar-thumb:hover{
-    background-color: hsl(red, 11%, 17%);
-}
-
-.closeNav {
-    font-size: 2.5rem;
-    margin: 0 auto 3rem;
-    cursor: pointer;
-}
-
-.closeNavIcon {
-    display: inline;
-    transition: .3s;
-}
-
-.closeNavIcon:hover {
-    color: rgb(233, 89, 64);
-}
-
-.closeAuthForm {
-    font-size: 2.5rem;
-    margin: 0 auto 3rem;
-    margin-top: -28rem;
-    cursor: pointer;
-}
-
-.searchContainer {
-    display: flex;
-    justify-content: center;
-}
-
-.searchIconContainer {
-    background-color: #646161;
-    width: 45px;
-    height: 55px;
-    font-size: 2.1rem;
-    display: grid;
-    place-content: center;
-    border-top-left-radius: 14px;
-    border-bottom-left-radius: 14px;
-    font-weight: 500;
-    transition: color .3s, background-color .3s;
-    cursor: pointer;
-}
-
-.searchInput {
-    border: none;
-    outline: none;
-    width: 200px;
-    font-size: 1.4rem;
-    padding: 6px;
-    background-color: #e7e3e3;
-    color: #131212;
-    transition: color .3s, background-color .3s;
-}
-
-.searchButton {
-    border: none;
-    outline: none;
-    font-size: 1.3rem;
-    font-weight: 600;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    background-color: #ffffff;
-    color: #242423;
-    cursor: pointer;
-    transition: background-color .3s, color .3s;
-}
-
-.searchButton:hover,
-.searchIconContainer:hover {
-    color: #c28b25;
-    background-color: #252525;
-}
-
-.navLinks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 1.4rem;
-    overflow: hidden;
-}
-
-.navLinkContainer {
-    width: 100%;
-    padding: 1.7rem;
-    transition: background-color .4s;
-}
-
-.navLinkContainer:hover {
-    background-color: #3f3e3e;
-}
-
-.navLinkContainer:hover .navLink,
-.navLinkContainer:hover .navLinkButton {
-    color: #bb8654;
-}
-
-.navLink  {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color .4s;
-}
-
-.navLinkButton {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color .4s;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    font-size: 1.47rem;
-    cursor: pointer;
-}
-
-.authFormContainer,
-.showAuthFormContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(10px);
-}
-
-
-
-.authForm {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.authInputGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.authInput {
-    height: 30px;
-    width: 300px;
-    border-radius: 6px;
-    outline: none;
-    border: none;
-    padding: 11px;
-    font-size: 1.1rem;
-}
-
-.authRedirect {
-    margin-top: -1rem;
-}
-
-.authBack {
-    font-size: 1.1rem;
-    margin-left: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: color .2s;
-}
-
-.authBack:hover {
-    color: #b97425;
-}
-
-.authButton {
-    width: 11rem;
-    height: 2.4rem;
-    font-size: 1.3rem;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    font-weight: 500;
-    transition: color .2s, background-color .2s;
-    cursor: pointer;
-}
-
-.authButton:hover {
-    color: #c28b25;
-    background-color: #252525;
-}
-
-.formErrors {
-    margin: 0;
-}
-
-.termsRedirect {
-    color: #ffffff;
-}
-
-.termErros {
-    font-size: 1rem;
-    position: absolute;
-    bottom: -3rem;
-}
-
-@media screen and (min-width: 768px) {
-    .navLogo {
-        font-size: 1.8rem;
-    }
-
-    .rightNavIcons {
-        font-size: 2.3rem;
-    }
-    .authFormContainer,
-    .search,
-    .navbar {
-        top: -200%;
-        right: 0;
-        position: absolute; 
-        transition: all .4s;
-        background-color: rgba(34, 34, 34, 0.8);
-        backdrop-filter: blur(16px);
-        padding: 2rem 0;
-        text-align: center;
-        overflow: hidden;
-        height: 100vh;
-        width: 25rem;
-        transition: all .4s;
-    }
-
-    .showAuthFormContainer,
-    .showSearch,
-    .showNavbar {
-        position: absolute;
-        right: 0;
-        transition: all .6s;
-        background-color: rgba(34, 34, 34, 0.8);
-        backdrop-filter: blur(16px);
-        padding: 1.7rem 0;
-        text-align: center;
-        height: 90.3vh;
-        overflow: hidden;
-        width: 25rem;
-    }
+  .showSearch {
+    transition: all .4s;
+  }
 }
 
 @media screen and (min-width: 820px) {
-    .navLogoItem {
-        font-size: 1.8rem;
-    }
+  .navLogoItem {
+    font-size: 1.8rem;
+  }
 
+  .rightNavIcons {
+    font-size: 2.4rem;
+  }
 
-    .rightNavIcons {
-        font-size: 2.4rem;
-    }
+  .navToggle,
+  .closeNav,
+  .closeNavIcon,
+  .navToggleIcon {
+    display: none;
+  }
 
-    .searchIcon,
-    .navToggle,
-    .navToggleIcon,
-    .closeNav,
-    .closeNavIcon {
-        display: none;
-    }
+  .authClose {
+    display: initial;
+  }
 
-    .authClose {
-        display: initial;
-    }
+  .searchIconContainer,
+  .searchButton,
+  .searchInput {
+    box-sizing: border-box;
+    height: 40px;
+  }
 
-    .search,
-    .showSearch {
-        position: absolute;
-        margin-top: -.5rem;
-        background-color: transparent;
-        backdrop-filter: none;
-    }
+  .search {
+    right: 0;
+    width: 25rem;
+  }
 
-    .searchIconContainer,
-    .searchButton,
-    .searchInput {
-        box-sizing: border-box;
-        height: 40px;
-    }
+  .showSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    right: 0;
+    z-index: 1000;
+  }
 
-    .search,
-    .showSearch {
-        top: 0;
-        margin-right: -3rem;
-        background: transparent;
-        backdrop-filter: none;
-        position: absolute;
-    }
+  .searchResults,
+  .closeSearchModal {
+    display: initial;
+    position: relative;
+  }
 
-    .searchContainer {
-        position: absolute;
-    }
+   .closeSearchModal {
+        font-size: 3rem;
+    } 
 
-    .navbar,
-    .showNavbar {
-        top: 0;
-        margin-top: 5rem;
-        background: transparent;
-        backdrop-filter: none;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background-color: #222121;
-        height: 2.4rem;
-        padding: .2rem;
-    }
+  .searchContainer {
+    margin-top: 1rem;
+  }
 
-    .navLinks {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 1.1rem;
-    }
+  .searchResults {
+    margin-top: 0;
+  }
 
-    .navLinkButton {
-        font-size: 1.1rem;
-    }
+  .navbar,
+  .showNavbar {
+    top: 0;
+    margin-top: 5rem;
+    background: transparent;
+    backdrop-filter: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #222121;
+    height: 2.4rem;
+    padding: 0.2rem;
+  }
 
-    .navLinkContainer {
-        cursor: pointer;
-    }
+  .navLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+  }
 
-    .navLink {
-        color: #ffffff;
-    }
+  .navLinkButton {
+    font-size: 1.1rem;
+  }
+
+  .navLinkContainer {
+    cursor: pointer;
+  }
+
+  .navLink {
+    color: #ffffff;
+  }
 }

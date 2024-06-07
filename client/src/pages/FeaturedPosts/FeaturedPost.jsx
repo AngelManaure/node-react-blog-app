@@ -17,7 +17,7 @@ function FeaturedPost() {
   }
 
   return (
-    <section>
+    <section className="allPostContainer">
       {featuredPosts.map((post) => (
         <PostCard post={post} key={post.id} />
     ))}
