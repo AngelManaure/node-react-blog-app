@@ -6,9 +6,7 @@ body {
 .homeContainer {
   width: 100%;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
 }
 
 .upSection {
@@ -21,58 +19,6 @@ body {
     rgba(241, 240, 240, 1) 50%
   );
   height: 100vh;
-}
-
-.categoryModalContainer {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-}
-
-.categoryModalContent {
-  margin-top: 1rem;
-  margin-right: 0;
-  width: 9rem;
-  background-color: #2b2a2a;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 1.2rem;
-  padding: 6px;
-  border-top-left-radius: 11px;
-  border-bottom-left-radius: 11px;
-}
-
-.categoryModal {
-  font-family: "Bai Jamjuree", sans-serif;
-}
-
-.categoryModalName {
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.categoryModalList {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-right: 1rem;
-}
-
-.categoryModalItem {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 500;
-  padding: 5px;
-  border-radius: 2px;
-  transition: color 0.3s, background-color 0.3s;
-}
-
-.categoryModalItem:hover {
-  color: #c28b25;
-  background-color: #252525;
 }
 
 .postSectionTextContainer,
@@ -91,7 +37,7 @@ body {
 .upSectionText {
   font-size: 1.6rem;
   font-weight: 500;
-  padding: 0.5rem;
+  padding: 0 1rem;
 }
 
 .upSectionIcons {
@@ -194,15 +140,14 @@ body {
   font-size: 1.4rem;
   font-weight: 500;
   color: #ffffff;
-  padding: 2rem;
 }
 
 .loginInfoSectionLink {
   color: #000000;
   background-color: #ffffff;
   padding: 7px;
-  text-decoration: none;
   font-weight: 500;
+  text-decoration: none;
   border-radius: 5px;
   transition: background-color .3s;
 }
@@ -213,28 +158,13 @@ body {
 
 .infoSection {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: 20vh;
+  margin-top: 15vh;
   font-size: 1.2rem;
   color: #ffffff;
-  padding: .5rem;
-}
-
-.helpInfoSectionLinks {
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-
-.helpInfoSectionLink {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.helpInfoSectionLink:hover {
-  text-decoration: underline;
 }
 
 .aboutInfoSection {
@@ -246,7 +176,6 @@ body {
 
 .aboutInfoSectionLinks {
   display: flex;
-  margin-top: 1.5rem;
   gap: .5rem;
   font-size: 1.5rem;
 }
@@ -256,14 +185,156 @@ body {
   text-decoration: none;
 }
 
-.politInfoSection {
-  margin-top: 1rem;
+.politicInfo {
   display: flex;
-  justify-content: center;
+  font-size: 1rem;
+  flex-direction: column;
   text-align: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.politInfoLink {
+.politicInfo a {
   color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+
+  .upsectionTextContainer {
+    margin: auto 2rem;
+    margin-top: 8rem;
+  }
+
+  .upSectionText {
+    font-size: 1.4rem;
+  }
+
+  .createPostButtonContainer {
+    margin-top: 3rem;
+  }
+
+  .createPost {
+    font-size: 1.3rem;
+    padding: .3rem;
+  }
+
+  .upSectionIcons {
+    margin-top: 10rem;
+  }
+
+  .goDown {
+    font-size: 3.5rem;
+  }
+
+  .postSectionTextContainer {
+    margin: auto 3rem;
+    margin-top: 8rem;
+  }
+
+  .postSectionText {
+    font-size: 1.4rem;
+  }
+
+  .bestPost {
+    font-size: 1.4rem;
+    padding: .5rem;
+  }
+
+  .loginInfoSection {
+    font-size: 1.4rem;
+  }
+
+  .loginInfoSectionLink {
+    padding: .6rem;
+  }
+
+  .aboutInfoSectionLink {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 853px){
+
+  .upSection {
+    margin-top: 2rem;
+  }
+
+  .search,
+  .showSearch {
+    margin-right: 0rem;
+  }
+
+  .goDown {
+    margin-top: -28rem;
+    font-size: 4.5rem;
+  }
+
+  .upSection {
+    height: 50vh;
+  }
+
+  .upsectionTextContainer {
+    margin-top: 3rem;
+  }
+
+  .postSection {
+    height: auto;
+  }
+
+  .postSectionTextContainer {
+    margin-top: 1rem;
+    padding-bottom: 6rem;
+    padding-top: 6rem;
+  }
+
+  .lastSection {
+    height: auto;
+    padding-bottom: 3rem;
+  }
+
+  .infoSection {
+    margin-top: 11rem;
+  }
+
+  .loginInfoSection {
+    padding: 0rem 4rem;
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .upSectionText,
+ .postSectionText,
+ .loginInfoSectionText {
+  font-size: 1.7rem;
+ } 
+
+ .goDown {
+  display: none;
+}
+
+}
+
+@media screen and (min-height: 1024px) {
+  .upSection {
+    height: auto;
+  }
+
+  .goDown {
+    display: none;
+  }
+
+  .postSection {
+    height: 30vh;
+  }
+
+  .postSectionTextContainer {
+    margin-top: 0rem;
+  }
+
+  .lastSection {
+    padding-bottom: 3rem;
+    height: auto;
+  }
+
+  
 }

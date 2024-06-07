@@ -7,4 +7,6 @@ body {
     height: 100vh;
     font-family: "Bai Jamjuree", sans-serif;
     overflow-x: hidden;
+    width: 100%;
+    background-color: #f7f2f2;
 }

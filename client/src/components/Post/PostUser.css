@@ -1,0 +1,51 @@
+.postUserCard {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    height: auto;
+    width: 100%;
+    background-color: #cecbcb;
+    color: rgb(56, 55, 55);
+    margin: 5px 0;
+    margin-top: 1rem;
+}
+
+.topPostUserCard {
+    background-color: #ebe6e6;
+    color: #424242;
+    padding: 1px;
+    padding-left: 8px;
+}
+
+.postUserCard p {
+    padding-left: 8px;
+    overflow: hidden;
+    height: 4rem;
+}
+
+.bottomPostUserCard {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottomLinksUserCard {
+    display: flex;
+    justify-content: end;
+    padding-bottom: 2px;
+    gap: 6px;
+}
+
+.bottomPostUserCard button {
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: rgb(243, 106, 64);
+    background-color: #615f5f;
+    padding: 4px 0;
+    cursor: pointer;
+    transition:  color .2s;
+}
+
+.bottomPostUserCard button:hover {
+    color: rgb(255, 91, 25);
+}

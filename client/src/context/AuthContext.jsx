@@ -39,14 +39,14 @@ export const AuthProvider = ({ children }) => {
             setLoginActive(true)
             setNavActive(false)
             setIsAuthenticated(true)
-        } catch (error) {
+        } catch (error){
             if (Array.isArray(error.response.data)) {
-                return setErrors(error.response.data)
+              return setErrors(error.response.data);
             } else {
-                setErrors([error.response.data.message])
+              setErrors([error.response.data.message]);
             }
+          }
         }
-    }
 
     const logout = (setNavActive) => {
         Cookies.remove("token");

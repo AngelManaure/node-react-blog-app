@@ -1,0 +1,48 @@
+.createPostForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding: 2rem .3rem;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    border-radius: 4px;
+    gap: 1rem;
+}
+
+.createPostInput,
+.createPostTextarea {
+    background-color: #f0efef;
+    padding: 5px;
+    font-size: 1.1rem;
+    font-family: "Bai Jamjuree", sans-serif;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    
+}
+
+.createPostInput {
+    height: 2rem;
+}
+.createPostTextarea {
+    height: 7rem;
+    resize: none;
+}
+
+.createPostSave {
+    font-family: "Bai Jamjuree", sans-serif;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-weight: 500;
+    background-color: rgb(128, 128, 128);
+    color: #f5f2f2;
+    transition: color .2s, background-color .2s;
+    cursor: pointer;
+}
+
+.createPostSave:hover {
+    color: #ffffff;
+    background-color: rgb(112, 111, 111);
+}

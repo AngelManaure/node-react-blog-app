@@ -1,0 +1,183 @@
+.onePostCard {
+  width: 100%;
+  height: auto;
+  background-color: #f7f6f6;
+  background-color: #fff;
+  height: 110vh;
+}
+
+.topOnePostCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topOnePostCard div {
+  display: flex;
+}
+
+.topOnePostCard button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 2.7rem;
+  cursor: pointer;
+}
+
+.goBack i {
+  color: rgb(107, 106, 106);
+}
+
+.goBack:hover i {
+  color: rgb(77, 75, 75);
+}
+
+.topOnePostCard h3 {
+  font-size: 1.2rem;
+}
+
+.onPostDescription {
+  color: #ffffff;
+  background-color: #464646;
+  padding: 6px;
+}
+
+.onePostAuthor {
+  font-size: 0.95rem;
+  text-align: end;
+}
+
+.denLink {
+  font-size: 1.1rem;
+}
+
+.reportMessageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.reportMessage {
+  position: absolute;
+  background: rgb(82, 81, 81);
+  color: rgb(247, 109, 54);
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0;
+}
+
+.userProfile {
+  display: grid;
+  place-items: center;
+  margin-top: 1rem;
+  overflow-x: hidden;
+}
+
+.commentTop {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentTop h4 {
+    margin: 7px auto;
+}
+
+.commentsContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  height: auto;
+}
+
+.commentsContainer h4 {
+  font-size: 1.1rem;
+  height: 1rem;
+}
+
+.commentItem {
+  gap: 0.5rem;
+  background-color: #fff;
+  margin: 1px 2px;
+  border: 1px solid hwb(0 83% 15%);
+  padding: 0.3rem;
+  height: auto;
+}
+
+.commentItem span {
+  font-size: 1.1rem;
+}
+
+.commentAuthor {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.createCommentForm {
+  margin-bottom: 2rem;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: .7rem .2rem;
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  margin: 0 4.5%;
+  z-index: 1000;
+  right: -300%;
+  transition: all .4s;
+}
+
+.showCreateCommentModal {
+    margin-bottom: 2rem;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: .7rem .2rem;
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+    margin: 0 4.5%;
+    z-index: 1000;
+    right: 0;
+  transition: all .4s;
+}
+
+.addCommentButton {
+    background-color: transparent;
+    border: none;
+    border: 1px solid rgb(128, 128, 128);
+    border-radius: 3px;
+    font-size: 1rem;
+    color: #464646;
+    font-weight: 600;
+    padding: 3px;
+    cursor: pointer;
+    height: 2rem;
+}
+
+.textareaCreateComment {
+  height: 7rem;
+  font-size: 1.1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 400;
+  padding: 5px;
+}
+
+.showCreateCommentModal button,
+.createCommentForm button {
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  background-color: #464646;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.4rem;
+  margin-top: 8px;
+  height: 3rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: "Bai Jamjuree", sans-serif;
+}

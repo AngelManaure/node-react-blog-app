@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 
 import { useAuth } from "../../context/AuthContext";
+import { useNav } from "../../context/NavContext";
 import Register from "../RegisterModal/Register";
 import Login from "../LoginModal/Login";
 import Search from "../Search/Search";
@@ -19,42 +20,19 @@ function NavLink({ children, to, handleClick }) {
 
 function Navbar() {
   const { isAuthenticated, logout } = useAuth();
-  const [navActive, setNavActive] = useState(false);
-  const [searchActive, setSearchActive] = useState(false);
-  const [loginActive, setLoginActive] = useState(true);
-  const [registerActive, setRegisterActive] = useState(false);
-
-  const handleClick = () => {
-    if (navActive == false) {
-      setNavActive(true);
-    } else {
-      setNavActive(false);
-    }
-  };
-
-  const handleSearch = () => {
-    if (searchActive == false) {
-      setSearchActive(true);
-    } else {
-      setSearchActive(false);
-    }
-  };
-
-  const loginClick = () => {
-    if (loginActive == false) {
-      setLoginActive(true);
-    } else {
-      setLoginActive(false);
-    }
-  };
-
-  const registerClick = () => {
-    if (registerActive == false) {
-      setRegisterActive(true);
-    } else {
-      setRegisterActive(false);
-    }
-  };
+  const {
+    navActive,
+    setNavActive,
+    searchActive,
+    loginActive,
+    setLoginActive,
+    registerActive,
+    setRegisterActive,
+    handleClick,
+    handleSearch,
+    loginClick,
+    registerClick,
+  } = useNav();
 
   return (
     <header className="header" id="header">
@@ -74,9 +52,7 @@ function Navbar() {
         </div>
       </div>
 
-      <Search 
-      searchActive={searchActive} 
-      handleSearch={handleSearch} />
+      <Search searchActive={searchActive} handleSearch={handleSearch} />
 
       <nav className={navActive == true ? "showNavbar" : "navbar"}>
         <div className="closeNav" onClick={handleClick}>
@@ -84,25 +60,28 @@ function Navbar() {
         </div>
 
         <div className="navLinks">
-          <NavLink to={"/"} handleClick={handleClick}>
-            Publicaciones destacadas
-          </NavLink>
-
-          <NavLink to={"/"} handleClick={handleClick}>
-            Ayuda
-          </NavLink>
           {isAuthenticated ? (
             <>
-              <Link
-                to="/"
-                onClick={() => {
-                  logout(setNavActive);
-                  setNavActive(false);
-                }}
-                className="navLink"
+              <div className="navLinkContainer">
+                <Link
+                  to="/"
+                  onClick={() => {
+                    logout(setNavActive);
+                    setNavActive(false);
+                  }}
+                  className="navLinkButton"
+                >
+                  Cerrar sesión
+                </Link>
+              </div>
+
+              <NavLink
+                className="navLinkButton"
+                to={"/profile"}
+                handleClick={handleClick}
               >
-                Cerrar sesión
-              </Link>
+                Mis publicaciones
+              </NavLink>
             </>
           ) : (
             <>
@@ -115,6 +94,15 @@ function Navbar() {
               </div>
             </>
           )}
+
+          <NavLink to={"/featured-posts"} handleClick={handleClick}>
+            Publicaciones destacadas
+          </NavLink>
+
+          <NavLink to={"/all-post"} handleClick={handleClick}>
+            Todas las publicaciones
+          </NavLink>
+
         </div>
       </nav>
 

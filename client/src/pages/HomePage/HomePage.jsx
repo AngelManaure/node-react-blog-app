@@ -1,45 +1,25 @@
-import { useAuth } from "../../context/AuthContext";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import "./HomePage.css";
-import { useEffect } from "react";
+import { useAuth } from "../../context/AuthContext";
+import { useNav } from "../../context/NavContext";
 
+import "./HomePage.css";
 
 function HomePage() {
   const { isAuthenticated } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { loginClick } = useNav();
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/profile")
+      navigate("/profile");
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated]);
 
   return (
     <main className="homeContainer" id="#home-container">
       <section className="upSection" id="up-section">
-        <div className="categoryModalContainer">
-          <div className="categoryModalContent">
-            <details className="categoryModal">
-              <summary className="categoryModalName">Categorías</summary>
-              <ul className="categoryModalList">
-                <li>
-                  <Link className="categoryModalItem">Frontend</Link>
-                </li>
-                <li>
-                  <Link className="categoryModalItem">Backend</Link>
-                </li>
-                <li>
-                  <Link className="categoryModalItem">Proyectos</Link>
-                </li>
-                <li>
-                  <Link className="categoryModalItem">Dudas</Link>
-                </li>
-              </ul>
-            </details>
-          </div>
-        </div>
-
         <article className="upsectionTextContainer">
           <p className="upSectionText">
             Comparte tus ideas y dudas sobre tu proyecto o sobre uno que quieras
@@ -48,7 +28,9 @@ function HomePage() {
         </article>
 
         <div className="createPostButtonContainer">
-          <Link to={"/"} className="createPost">Crear Post</Link>
+          <button onClick={loginClick} className="createPost">
+            Crear Post
+          </button>
         </div>
         <div className="upSectionIcons">
           <a href="#post-section" className="goDown">
@@ -63,66 +45,65 @@ function HomePage() {
             Explora y encuentra proyectos en curso en los que interesarte
           </p>
 
-          <Link to={'/'} className="bestPost">Publicaciones destacadas</Link>
+          <Link to={"/featured-posts"} className="bestPost">
+            Publicaciones destacadas
+          </Link>
         </article>
       </section>
 
       <section className="lastSection">
         <article className="loginInfoSection">
           <p className="loginInfoSectionText">
-          Encuentra amistades que compartan tus ideas y has proyectos en grupo
+            Encuentra amistades que compartan tus ideas y has proyectos en grupo
           </p>
 
-          <a href="#header" className="loginInfoSectionLink">Iniciar sesión</a>
+          <a
+            href="#header"
+            className="loginInfoSectionLink"
+            onClick={loginClick}
+          >
+            Iniciar sesión
+          </a>
         </article>
         <article className="infoSection">
-          
-          <div className="helpInfoSection">
-            <h3 className="helpInfoSectionTitle">
-              Ayuda
-            </h3>
-              <div className="helpInfoSectionLinks">
-                <a href="#" className="helpInfoSectionLink">
-                  Tutorial
-                </a>
+          <div className="aboutInfoSection">
+            <h3 className="aboutInfoSectionTitle">Redes sociales :</h3>
+            <div className="aboutInfoSectionLinks">
+              <a
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/manaure872/"
+                target="_BLANK"
+                className="aboutInfoSectionLink"
+              >
+                <i className="ri-instagram-line"></i>
+              </a>
 
-                <a href="#" className="helpInfoSectionLink">
-                  Reportar un bug
-                </a>
-              </div>
+              <a
+                rel="noopener noreferrer"
+                href="https://www.facebook.com/angel.art.925602/"
+                target="_BLANK"
+                className="aboutInfoSectionLink"
+              >
+                <i className="ri-facebook-box-fill"></i>
+              </a>
+
+              <a
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/angel-manaure-40b5372b6/"
+                target="_BLANK"
+                className="aboutInfoSectionLink"
+              >
+                <i className="ri-linkedin-box-fill"></i>
+              </a>
+            </div>
           </div>
 
-          <div className="aboutInfoSection">
-            <h3 className="aboutInfoSectionTitle">
-              Desarrollado por:
-            </h3>
-              <div className="aboutInfoSectionLinks">
-                <a href="#" className="aboutInfoSectionLink">
-                <i className="ri-instagram-line"></i>
-                </a>
-
-                <a href="#" className="aboutInfoSectionLink">
-                <i className="ri-facebook-box-fill"></i>
-                </a>
-
-                <a href="#" className="aboutInfoSectionLink">
-                <i className="ri-linkedin-box-fill"></i>
-                  </a>
-              </div>
+          <div className="politicInfo">
+            <Link to="/about-page/content">Política de contenidos</Link>
+            <Link to="/about-page/priv">Política de Privacidad</Link>
+            <Link to="/about-page/terminos">Términos y Condiciones de Uso</Link>
           </div>
         </article>
-
-              <div className="politInfoSection">
-                
-                <a href="#" className="politInfoLink">Condiciones de servicio
-                </a>
-
-                <a href="#" className="politInfoLink">Privacidad
-                </a>
-
-                <a href="#" className="politInfoLink">Politica de contenido
-                </a>
-              </div>
       </section>
     </main>
   );
