@@ -16,7 +16,7 @@ function Search({ searchActive, handleSearch }) {
           setResults(response.data);
           setSearchResult(true)
         } catch (error) {
-          throw new Error(error);
+          console.log(error);
         }
       }
 

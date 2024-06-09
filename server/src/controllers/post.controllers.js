@@ -386,26 +386,14 @@ export const searchQuery = async (req, res) => {
         .status(400)
         .json({ message: "el parametro query 'q' es requerido" });
     }
-    const posts = await prisma.post.findMany({
-      where: {
-        OR: [
-          {
-            title: {
-              contains: query,
-              mode: "insensitive",
-            },
-          },
-          {
-            description: {
-              contains: query,
-              mode: "insensitive",
-            },
-          },
-        ],
-      },
-    });
+    const posts = await prisma.post.findMany();
 
-    res.json(posts);
+    const filteredPosts = posts.filter(post =>
+      post.title.toLowerCase().includes(query.toLowerCase()) ||
+      post.description.toLowerCase().includes(query.toLowerCase())
+    );
+
+    res.json(filteredPosts);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
