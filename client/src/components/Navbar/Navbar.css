@@ -81,6 +81,11 @@
   padding-bottom: 10rem;
 }
 
+.closeSearchModal {
+  font-size: 2.5rem;
+  margin: 1rem;
+}
+
 .searchResults {
   margin-top: 1rem;
   display: flex;
@@ -91,13 +96,15 @@
 
 .searchResult {
   border-radius: 12px;
-  background-color: #1f1e1e;
-  height: 6rem;
+  background-color: #353333;
+  height: 4rem;
   margin: 5px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   overflow: hidden;
-  padding-bottom: 8px;
-  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
 }
 
 .topsearchResult {
@@ -435,8 +442,8 @@
   }
 
    .closeSearchModal {
-        font-size: 3rem;
-    } 
+    font-size: 3rem;
+  } 
 
   .searchContainer {
     margin-top: 1rem;

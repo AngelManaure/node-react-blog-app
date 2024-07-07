@@ -2,7 +2,7 @@
 
 .allPostContainer {
     width: 100%;
-    height: 100vh;
+    height: auto;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;

@@ -9,8 +9,6 @@ import {
   updatePostRequest,
   deletePostRequest,
   createCommentRequest,
-//   updateCommentRequest,
-//   deleteCommentRequest,
   reportPostRequest,
 } from "../api/posts";
 

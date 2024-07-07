@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 
 import { searchPost } from "../../api/posts";
@@ -27,11 +27,17 @@ function Search({ searchActive, handleSearch }) {
           setSearchResult(false)
         }
       }
+      
+      // useEffect(() => {
+      //   if (handleResults) {
+      //     setSearchActive(false)
+      //   }
+      // }, [searchActive])
 
   return (
     <div className={searchActive == true ? "showSearch" : "search"}>
     <div className="closeSearchModal" onClick={handleSearch}>
-      <i className="ri-close-line"></i>
+      <i className="ri-close-line closeSearch"></i>
     </div>
     <form className="searchContainer" onSubmit={handleSearchSubmit}>
       <div className="searchIconContainer">
@@ -63,7 +69,6 @@ function Search({ searchActive, handleSearch }) {
             Ver
             </Link>
           </div>
-          <p>{post.description}</p>
         </div>
       ))}
     </div>

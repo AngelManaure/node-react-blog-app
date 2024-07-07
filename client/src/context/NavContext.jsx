@@ -59,6 +59,7 @@ export const NavProvider = ({ children }) => {
                 navActive,
                 setNavActive,
                 searchActive,
+                setSearchActive,
                 loginActive,
                 setLoginActive,
                 registerActive,

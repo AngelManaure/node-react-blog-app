@@ -41,7 +41,7 @@ function CreateComent() {
           className="textareaCreateComment"
           {...register("description", { required: true })}
         ></textarea>
-        <button type="submit">crear</button>
+        <button type="submit" className="createCommentButton">crear</button>
       </form>
     </>
   );

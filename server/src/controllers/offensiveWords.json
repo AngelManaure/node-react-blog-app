@@ -1,11 +1,8 @@
 {
-  "aqui",
-  "van",
-  "malas",
-  "palabras",
-  "que",
-  "no",
-  "voy",
-  "a",
-  "poner"
+  "words": [
+    "verde",
+    "rojo",
+    "azul",
+    "amarillo"
+  ]
 }

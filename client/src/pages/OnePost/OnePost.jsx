@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 
 import { usePosts } from "../../context/PostContext";
+import { useNav } from "../../context/NavContext";
 import CreateComent from "../../components/Post/CreateComent";
 import "./OnePost.css";
 
@@ -13,15 +14,18 @@ function OnePost() {
     reportPost,
     reportMessage,
   } = usePosts();
+  const{ setSearchActive } = useNav();
   const params = useParams();
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
   const [author, setAuthor] = useState([]);
   const navigate = useNavigate();
+  const id = params.id
 
   useEffect(() => {
     const loadPost = async () => {
       try {
+        setSearchActive(false)
         const res = await getPost(params.id);
 
         if (!res) {
@@ -36,7 +40,7 @@ function OnePost() {
       }
     };
     loadPost();
-  }, []);
+  }, [id]);
 
   const handleReport = () => {
     reportPost(params.id);
